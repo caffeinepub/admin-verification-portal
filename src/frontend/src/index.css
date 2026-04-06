@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Black & white admin verification theme */
+    --background: 0 0 0; /* #000 pure black */
+    --foreground: 1 0 0; /* #fff pure white */
+    --card: 0.13 0 0; /* #111 dark card */
+    --card-foreground: 1 0 0; /* #fff */
+    --popover: 0.16 0 0; /* #1a1a1a */
+    --popover-foreground: 1 0 0;
+    --primary: 1 0 0; /* #fff white button */
+    --primary-foreground: 0 0 0; /* #000 black text on button */
+    --secondary: 0.16 0 0; /* #1a1a1a */
+    --secondary-foreground: 1 0 0;
+    --muted: 0.22 0 0; /* #333 */
+    --muted-foreground: 0.65 0 0; /* #999 */
+    --accent: 0.8 0 0; /* #ccc accent */
+    --accent-foreground: 0 0 0;
+    --destructive: 0.55 0.22 27; /* red error */
+    --destructive-foreground: 1 0 0;
+    --success: 0.65 0.17 155; /* green success */
+    --border: 0.22 0 0; /* #333 */
+    --input: 0.16 0 0; /* #222 input bg */
+    --ring: 1 0 0; /* white focus ring */
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.13 0 0;
+    --sidebar-foreground: 1 0 0;
+    --sidebar-primary: 1 0 0;
+    --sidebar-primary-foreground: 0 0 0;
+    --sidebar-accent: 0.22 0 0;
+    --sidebar-accent-foreground: 1 0 0;
+    --sidebar-border: 0.22 0 0;
+    --sidebar-ring: 1 0 0;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Screen transition animations */
+@keyframes screenFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes screenFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes checkmarkDraw {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes successPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.screen-enter {
+  animation: screenFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.screen-exit {
+  animation: screenFadeOut 0.3s ease-in forwards;
+}
+
+.spinner {
+  animation: spin 0.8s linear infinite;
+}
+
+.success-icon {
+  animation: successPulse 2s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+.scrollable-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 2px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 2px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* Input focus glow */
+.admin-input:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15), 0 0 12px
+    rgba(255, 255, 255, 0.08);
+}
+
+/* Card shadow */
+.admin-card {
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.8),
+    0 10px 15px -3px rgba(0, 0, 0, 0.6),
+    0 25px 50px -12px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.03);
+}
